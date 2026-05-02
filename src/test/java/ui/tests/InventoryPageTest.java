@@ -3,6 +3,7 @@ package ui.tests;
 import io.qameta.allure.Owner;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
@@ -31,12 +32,14 @@ public class InventoryPageTest extends BaseTest {
 
 
     @Test
+    @DisplayName("Открытие карточки товара")
     void openCard() {
         openCardWithName(BACKPACK);
         $x("//div[@class=\"inventory_details_desc large_size\"]").shouldBe(visible);
     }
 
     @Test
+    @DisplayName("Добавление продуктов в корзину")
     void addProductInBasket() {
         addSomeProduct(6L);
         String textContent = $x("//span[@class=\"shopping_cart_badge\"]").getAttribute("textContent");
@@ -44,6 +47,7 @@ public class InventoryPageTest extends BaseTest {
     }
 
     @Test
+    @DisplayName("Сортировка Name (Z to A)")
     void sortedListProductZ_A() {
         openOptionSorted();
         selectOptionSorted("Name (Z to A)");
@@ -54,6 +58,7 @@ public class InventoryPageTest extends BaseTest {
     }
 
     @Test
+    @DisplayName("Сортировка Price (low to high)")
     void sortedListProductUpPrise() {
         openOptionSorted();
         selectOptionSorted("Price (low to high)");

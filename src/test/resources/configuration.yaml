@@ -1,0 +1,11 @@
+ui:
+  configuration:
+    baseUrl: "https://www.saucedemo.com"
+    headless: true
+    browserSize: "1920x1080"
+    browser: "chrome"
+api:
+  configuration:
+    baseUrl: "https://restful-booker.herokuapp.com"
+    username: "admin"
+    password: "password123"

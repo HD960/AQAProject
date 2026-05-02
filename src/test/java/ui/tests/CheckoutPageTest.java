@@ -2,6 +2,7 @@ package ui.tests;
 
 import io.qameta.allure.Owner;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import static com.codeborne.selenide.Condition.visible;
@@ -28,6 +29,7 @@ public class CheckoutPageTest extends BaseTest {
     }
 
     @Test
+    @DisplayName("Корректный ввод данных для заказа")
     void successSetDataFromInput() {
         fillInserts("Name", "Last", "123456");
         clickToContinue();

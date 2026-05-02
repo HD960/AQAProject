@@ -21,6 +21,9 @@ dependencies {
     testCompileOnly ("org.projectlombok:lombok:1.18.42")
     testAnnotationProcessor ("org.projectlombok:lombok:1.18.42")
     testImplementation("com.google.code.gson:gson:2.13.1")
+    implementation("org.yaml:snakeyaml:2.5")
+    testImplementation("org.yaml:snakeyaml:2.5")
+
 }
 
 tasks.test {

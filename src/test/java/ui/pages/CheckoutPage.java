@@ -1,10 +1,13 @@
 package ui.pages;
 
+import io.qameta.allure.Step;
+
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$x;
 
 public class CheckoutPage implements OpenMenu {
 
+    @Step("Заполнение данных формы покупки")
     public static void fillInserts(String firstname, String lastname, String code) {
         $("#first-name").setValue(firstname);
         $("#last-name").setValue(lastname);

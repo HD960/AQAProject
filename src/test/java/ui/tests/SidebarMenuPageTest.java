@@ -2,6 +2,7 @@ package ui.tests;
 
 import io.qameta.allure.Owner;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import ui.pages.OpenMenu;
 
@@ -25,12 +26,14 @@ public class SidebarMenuPageTest extends BaseTest {
     }
 
     @Test
+    @DisplayName("Выход из учетной записи")
     void logoutTest() {
         logout();
         $("#login-button").shouldBe(visible);
     }
 
     @Test
+    @DisplayName("Закрытие меню")
     void closeSidebarTest() {
         closeSidebarMenu();
         $(".bm-menu").shouldBe(hidden);

@@ -1,7 +1,10 @@
 package ui.tests;
 
+import com.codeborne.selenide.ElementsCollection;
+import com.codeborne.selenide.SelenideElement;
 import io.qameta.allure.Owner;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import static com.codeborne.selenide.CollectionCondition.size;
@@ -17,7 +20,8 @@ import static utils.Const.*;
 
 @Owner(OWNER_DOUHAN)
 public class BasketPageTest extends BaseTest {
-    private static final String LIST_CART_ITEM_PATH = "//div//div[@class=\"cart_item\"]";
+    private static final ElementsCollection LIST_CART_ITEM = $$x("//div//div[@class=\"cart_item\"]");
+    private static final SelenideElement BIKE_LIGHT_OBJECT = $x("//div[text()=\"Sauce Labs Bike Light\"]");
 
     @BeforeEach
     void init() {
@@ -28,11 +32,12 @@ public class BasketPageTest extends BaseTest {
     }
 
     @Test
+    @DisplayName("Налицие продуктов в корзине, корректное удаление товара из корзины")
     void containsProductFromBasketAndDelFirst() {
-        $$x(LIST_CART_ITEM_PATH).shouldHave(size(2));
+        LIST_CART_ITEM.shouldHave(size(2));
         removeProduct();
-        $$x(LIST_CART_ITEM_PATH).shouldHave(size(1));
-        $x("//div[text()=\"Sauce Labs Bike Light\"]").shouldBe(visible);
+        LIST_CART_ITEM.shouldHave(size(1));
+        BIKE_LIGHT_OBJECT.shouldBe(visible);
     }
 
 }
