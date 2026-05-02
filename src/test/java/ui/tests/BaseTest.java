@@ -11,7 +11,7 @@ import utils.ConfigLoader;
 public abstract class BaseTest {
 
     @BeforeAll
-    public static void initAll(){
+    public static void initAll() {
         SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
         Configuration.browser = ConfigLoader.get().getUi().getConfiguration().getBrowser();
         Configuration.browserSize = ConfigLoader.get().getUi().getConfiguration().getBrowserSize();
@@ -22,8 +22,6 @@ public abstract class BaseTest {
     @AfterEach
     public void tearDown() {
         Selenide.closeWebDriver();
-        Selenide.clearBrowserCookies();
-        Selenide.clearBrowserLocalStorage();
     }
 
 }
