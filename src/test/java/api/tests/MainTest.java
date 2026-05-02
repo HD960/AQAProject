@@ -58,13 +58,13 @@ public class MainTest extends BaseTest {
     }
 
     @Test
-    @DisplayName("Получение данных по id = 1")
+    @DisplayName("Получение данных по id = 96")
     void getBookIdTest() {
 
         Booking booking = given()
                 .spec(Specification.requestSpecification(BASE_URL))
                 .when()
-                .get("/booking/1")
+                .get("/booking/96")
                 .then()
                 .statusCode(200)
                 .log().all().extract().as(Booking.class);
@@ -84,7 +84,7 @@ public class MainTest extends BaseTest {
                 .cookie("token", token)
                 .body(updateBooking)
                 .when()
-                .patch("/booking/1")
+                .patch("/booking/96")
                 .then()
                 .log().all()
                 .statusCode(200)
